@@ -3,7 +3,6 @@ package ua.edu.ucu.stream;
 import ua.edu.ucu.function.*;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 public class AsIntStream implements IntStream {
@@ -13,6 +12,7 @@ public class AsIntStream implements IntStream {
     private AsIntStream() {
         this.length = 0;
     }
+
     private AsIntStream(List<Integer> lst) {
         this.elements = lst;
         this.length = lst.size();
@@ -115,6 +115,7 @@ public class AsIntStream implements IntStream {
         List<Integer> newElements = new ArrayList<>();
         for (int i = 0; i < this.length; i++){
             int current = this.elements.get(i);
+            newElements.addAll(func.applyAsIntStream(current).getValues());
 
         }
         return new AsIntStream(newElements);
@@ -136,6 +137,9 @@ public class AsIntStream implements IntStream {
             array[i] = this.elements.get(i);
         }
         return array;
+    }
+    public ArrayList getValues() {
+        return (ArrayList)((ArrayList)this.elements).clone();
     }
 
 

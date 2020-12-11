@@ -2,6 +2,7 @@ package ua.edu.ucu.stream;
 
 import ua.edu.ucu.function.*;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public interface    IntStream {
@@ -27,5 +28,7 @@ public interface    IntStream {
     Integer sum();
 
     int[] toArray();
+
+    Collection<? extends Integer> getValues();
 
 }
