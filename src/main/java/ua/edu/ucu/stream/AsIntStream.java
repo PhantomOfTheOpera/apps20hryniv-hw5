@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AsIntStream implements IntStream {
-    List<Integer> elements = new ArrayList<>();
+    private List<Integer> elements = new ArrayList<>();
     private int length;
 
     private AsIntStream() {
